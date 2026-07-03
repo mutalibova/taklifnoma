@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        title: ["Cormorant Garamond"],
+                        body: ["Poppins"]
+                    },
+                    colors: {
+                        ocean: "#0ea5e9",
+                        lightOcean: "#e0f2fe",
+                        deepOcean: "#0369a1"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+            background: #f0f9ff;
+            font-family: Poppins, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* OCEAN VIBE BLURS */
+        .blur1 {
+            position: fixed;
+            top: -220px;
+            left: -220px;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: #bae6fd;
+            filter: blur(140px);
+            opacity: .6;
+            z-index: -1;
+            animation: float1 12s ease-in-out infinite;
+        }
+
+        .blur2 {
+            position: fixed;
+            right: -220px;
+            bottom: -220px;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: #7dd3fc;
+            filter: blur(140px);
+            opacity: .4;
+            z-index: -1;
+            animation: float2 14s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            50% {
+                transform: translateY(40px) translateX(20px);
+            }
+        }
+
+        @keyframes float2 {
+            50% {
+                transform: translateY(-40px) translateX(-20px);
+            }
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, .85);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 1);
+            box-shadow: 0 30px 70px rgba(14, 165, 233, .1);
+        }
+
+        /* YURAKCHALAR STILI VA ANIMATSIYASI */
+        .heart {
+            position: fixed;
+            bottom: -50px;
+            font-size: 24px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: flyUp linear forwards;
+        }
+
+        @keyframes flyUp {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.8;
+                transform: translateY(-10vh) scale(1.2);
+            }
+
+            100% {
+                transform: translateY(-120vh) translateX(var(--custom-x, 0px)) rotate(360deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blur1"></div>
+    <div class="blur2"></div>
+
+    <section id="cover" class="min-h-screen flex justify-center items-center relative">
+
+        <div id="envelope" class="relative w-[400px] h-[260px] transform transition-all duration-700">
+
+            <div class="absolute bottom-[-18px] left-1/2 -translate-x-1/2 w-[88%] h-10 rounded-full bg-sky-200/30 blur-3xl"></div>
+
+            <div id="paper"
+                class="absolute left-1/2 top-20 -translate-x-1/2 translate-y-12 opacity-0 w-[350px] h-[200px] rounded-[24px] bg-white flex flex-col justify-center items-center duration-[1500ms] shadow-lg border border-slate-100 p-6">
+                <p class="tracking-[7px] text-sky-500 text-[10px] font-medium uppercase">
+                    Special Invitation
+                </p>
+
+                <h2 class="font-title text-3xl mt-2 text-slate-800 italic font-light">
+                    Taklifnoma
+                </h2>
+
+                <div class="w-12 h-[1px] bg-sky-200 my-2"></div>
+
+                <p class="text-sky-400 text-xs font-light tracking-wide">
+                    Siz uchun maxsus 🌊
+                </p>
+            </div>
+
+            <div class="absolute bottom-0 w-full h-[190px] rounded-b-[32px] bg-white border border-slate-100 shadow-[0_15px_35px_rgba(14,165,233,0.12)]"></div>
+
+            <div id="leftFlap" class="absolute left-0 bottom-0 w-1/2 h-[190px] origin-left z-20">
+                <div class="w-full h-full bg-white border-r border-slate-100 rounded-bl-[32px]" style="
+                clip-path:polygon(0 0,100% 50%,100% 100%,0 100%);
+                filter:drop-shadow(8px 0 10px rgba(14,165,233,0.1));
+            ">
+                </div>
+            </div>
+
+            <div id="rightFlap" class="absolute right-0 bottom-0 w-1/2 h-[190px] origin-right z-20">
+                <div class="w-full h-full bg-white border-l border-slate-100 rounded-br-[32px]" style="
+                clip-path:polygon(0 50%,100% 0,100% 100%);
+                filter:drop-shadow(-8px 0 10px rgba(14,165,233,0.1));
+            ">
+                </div>
+            </div>
+
+            <div id="topFlap" class="absolute top-0 left-0 w-full h-[150px] origin-top z-30 filter drop-shadow-[0_15px_20px_rgba(14,165,233,0.25)]">
+                <div class="absolute inset-0 bg-gradient-to-b from-white via-white to-white rounded-t-[32px]" style="
+                    clip-path:polygon(0 0,100% 0,50% 100%);
+                ">
+                </div>
+            </div>
+
+            <div id="seal" class="absolute left-1/2 top-[115px] -translate-x-1/2 z-40
+            w-[56px] h-[56px] rounded-full
+            bg-gradient-to-br from-sky-400 via-sky-500 to-sky-600
+            shadow-[0_10px_25px_rgba(14,165,233,.45),inset_0_2px_4px_rgba(255,255,255,.4)]
+            cursor-pointer flex justify-center items-center
+            text-white text-xl select-none
+            hover:scale-105 duration-300 border border-sky-300">
+                💙
+            </div>
+
+        </div>
+
+    </section>
+
+    <main id="website" class="hidden opacity-0 duration-1000">
+        <section id="first-section" class="min-h-screen flex flex-col justify-center items-center px-8">
+            <div data-show class="w-44 h-44 rounded-full overflow-hidden border-[7px] border-white shadow-2xl">
+                <img src="couple.jpg" class="w-full h-full object-cover">
+            </div>
+            <p data-show class="tracking-[8px] uppercase text-sky-500 mt-10">Wedding</p>
+            <h1 data-show class="font-title text-6xl mt-4 text-center">Ali <span class="text-sky-400">&</span> Erza</h1>
+            <p data-show class="text-center text-gray-500 mt-8 leading-8 max-w-sm">
+                Bizning eng baxtli kunimizga sizni chin qalbdan taklif qilamiz 🌊
+            </p>
+        </section>
+
+        <section class="min-h-[80vh] flex flex-col justify-center items-center px-8">
+            <p data-show class="tracking-[8px] uppercase text-sky-500">Wedding Day</p>
+            <h2 data-show class="font-title text-6xl mt-4 text-slate-700">12 • 09 • 2026</h2>
+            <div data-show class="grid grid-cols-4 gap-3 mt-12 w-full max-w-md">
+                <div class="glass rounded-3xl py-5">
+                    <h1 id="days" class="text-4xl text-center font-bold text-sky-600">00</h1>
+                    <p class="text-center text-gray-500 mt-2">Kun</p>
+                </div>
+                <div class="glass rounded-3xl py-5">
+                    <h1 id="hours" class="text-4xl text-center font-bold text-sky-600">00</h1>
+                    <p class="text-center text-gray-500 mt-2">Soat</p>
+                </div>
+                <div class="glass rounded-3xl py-5">
+                    <h1 id="minutes" class="text-4xl text-center font-bold text-sky-600">00</h1>
+                    <p class="text-center text-gray-500 mt-2">Daqiqa</p>
+                </div>
+                <div class="glass rounded-3xl py-5">
+                    <h1 id="seconds" class="text-4xl text-center font-bold text-sky-600">00</h1>
+                    <p class="text-center text-gray-500 mt-2">Soniya</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="min-h-[75vh] flex flex-col justify-center items-center px-8">
+            <p data-show class="tracking-[8px] uppercase text-sky-500">Location</p>
+            <h2 data-show class="font-title text-5xl mt-4 text-slate-700">Toy manzili</h2>
+            <div data-show class="glass rounded-[35px] p-8 mt-10 w-full max-w-md">
+                <p class="text-center text-2xl font-semibold">Grand Wedding Hall</p>
+                <p class="text-center mt-5 text-gray-500 leading-8">Bu yerga toy manzili yoziladi</p>
+                <a href="#" class="mt-8 flex justify-center items-center h-14 rounded-full bg-sky-500 text-white">Google
+                    Maps</a>
+            </div>
+        </section>
+
+        <section class="min-h-[60vh] flex flex-col justify-center items-center">
+            <h1 data-show class="font-title text-6xl text-center text-slate-700">Sizni kutamiz 💙</h1>
+            <p data-show class="mt-6 text-gray-400">Sevgi bilan...</p>
+        </section>
+    </main>
+
+    <script>
+        const seal = document.getElementById("seal");
+        const topFlap = document.getElementById("topFlap");
+        const leftFlap = document.getElementById("leftFlap");
+        const rightFlap = document.getElementById("rightFlap");
+        const paper = document.getElementById("paper");
+        const cover = document.getElementById("cover");
+        const website = document.getElementById("website");
+
+        seal.onclick = () => {
+            navigator.vibrate?.(50);
+            const pop = new Audio("pop.mp3");
+            pop.play().catch(() => { });
+
+            document.getElementById("envelope").style.transform = "rotate(0deg)";
+
+            gsap.to(seal, {
+                scale: .82,
+                duration: .15,
+                repeat: 1,
+                yoyo: true
+            });
+
+            gsap.to(topFlap, {
+                rotateX: -180,
+                duration: .8,
+                ease: "power3.inOut"
+            });
+
+            gsap.to(leftFlap, {
+                x: -190,
+                rotate: -15,
+                duration: .8,
+                ease: "power3.inOut"
+            });
+
+            gsap.to(rightFlap, {
+                x: 190,
+                rotate: 15,
+                duration: .8,
+                ease: "power3.inOut"
+            });
+
+            setTimeout(() => {
+                paper.style.opacity = "1";
+                paper.style.transform = "translate(-50%,-130px)";
+            }, 700);
+
+            setTimeout(() => {
+                paper.innerHTML = `
+                    <p class="tracking-[6px] text-sky-500 text-[11px] font-medium uppercase">🌊 MAXSUS</p>
+                    <h2 class="font-title text-3xl mt-2 text-stone-800 font-light italic">Siz uchun</h2>
+                    <h1 class="font-title text-4xl text-sky-600 mt-1">Taklifnoma</h1>
+                `;
+            }, 1200);
+
+            setTimeout(() => {
+                gsap.to("#cover", { opacity: 0, duration: 1 });
+            }, 2600);
+
+            setTimeout(() => {
+                cover.classList.add("hidden");
+                website.classList.remove("hidden");
+                setTimeout(() => {
+                    website.classList.remove("opacity-0");
+                    setInterval(createHeart, 250);
+                    
+                    // Sayt to'liq yuklangach avtomatik silliq ravishda bir oz pastga scroll qiladi
+                    window.scrollBy({
+                        top: 250,
+                        behavior: 'smooth'
+                    });
+                }, 50);
+            }, 3600);
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+
+            const heartTypes = ["💙", "🤍", "🫧"];
+            heart.innerText = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+
+            heart.style.left = Math.random() * 100 + "vw";
+            const duration = Math.random() * 2 + 3;
+            heart.style.animationDuration = duration + "s";
+
+            const randomX = Math.random() * 200 - 100;
+            heart.style.setProperty("--custom-x", randomX + "px");
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+
+        //================ COUNTDOWN ================
+        const wedding = new Date("2026-09-12 18:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = wedding - now;
+            const day = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hour = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minute = Math.floor((distance % (1000 * 60 * 60)) / 60000);
+            const second = Math.floor((distance % (60000)) / 1000);
+
+            document.getElementById("days").innerHTML = day;
+            document.getElementById("hours").innerHTML = hour;
+            document.getElementById("minutes").innerHTML = minute;
+            document.getElementById("seconds").innerHTML = second;
+        }, 1000);
+
+        //================ SCROLL ANIMATION ================
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0px)";
+                }
+            });
+        }, { threshold: .15 });
+
+        document.querySelectorAll("[data-show]").forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(80px)";
+            el.style.transition = "1s";
+            observer.observe(el);
+        });
+
+        //================ MUSIC ================
+        const music = new Audio("music.mp3");
+        music.loop = true;
+        document.body.insertAdjacentHTML("beforeend", `
+            <div id="musicBtn" class="fixed top-5 right-5 glass w-12 h-12 rounded-full flex justify-center items-center cursor-pointer z-50">🎵</div>
+        `);
+
+        document.getElementById("musicBtn").onclick = () => {
+            if (music.paused) {
+                music.play().catch(() => { });
+                document.getElementById("musicBtn").innerHTML = "🎵";
+            } else {
+                music.pause();
+                document.getElementById("musicBtn").innerHTML = "🔇";
+            }
+        }
+    </script>
+</body>
+
+</html>
