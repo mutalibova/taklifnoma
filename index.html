@@ -198,10 +198,10 @@
     <main id="website" class="hidden opacity-0 duration-1000">
         <section id="first-section" class="min-h-screen flex flex-col justify-center items-center px-8">
             <div data-show class="w-44 h-44 rounded-full overflow-hidden border-[7px] border-white shadow-2xl">
-                <img src="couple.jpg" class="w-full h-full object-cover">
+                <img src="/photo_5363987113155698003_y.jpg" class="w-full h-full object-cover">
             </div>
             <p data-show class="tracking-[8px] uppercase text-sky-500 mt-10">Wedding</p>
-            <h1 data-show class="font-title text-6xl mt-4 text-center">Ali <span class="text-sky-400">&</span> Erza</h1>
+            <h1 data-show class="font-title text-6xl mt-4 text-center">Shoxruxbek <span class="text-sky-400">&</span> Mubina</h1>
             <p data-show class="text-center text-gray-500 mt-8 leading-8 max-w-sm">
                 Bizning eng baxtli kunimizga sizni chin qalbdan taklif qilamiz 🌊
             </p>
@@ -209,7 +209,7 @@
 
         <section class="min-h-[80vh] flex flex-col justify-center items-center px-8">
             <p data-show class="tracking-[8px] uppercase text-sky-500">Wedding Day</p>
-            <h2 data-show class="font-title text-6xl mt-4 text-slate-700">12 • 09 • 2026</h2>
+            <h2 data-show class="font-title text-6xl mt-4 text-slate-700">25 • 07 • 2026</h2>
             <div data-show class="grid grid-cols-4 gap-3 mt-12 w-full max-w-md">
                 <div class="glass rounded-3xl py-5">
                     <h1 id="days" class="text-4xl text-center font-bold text-sky-600">00</h1>
@@ -234,12 +234,25 @@
             <p data-show class="tracking-[8px] uppercase text-sky-500">Location</p>
             <h2 data-show class="font-title text-5xl mt-4 text-slate-700">Toy manzili</h2>
             <div data-show class="glass rounded-[35px] p-8 mt-10 w-full max-w-md">
-                <p class="text-center text-2xl font-semibold">Grand Wedding Hall</p>
-                <p class="text-center mt-5 text-gray-500 leading-8">Bu yerga toy manzili yoziladi</p>
+                <p class="text-center text-2xl font-semibold">"YOSHLAR" TO'YXONASI</p>
+                <p class="text-center mt-5 text-gray-500 leading-8">Manzil: POYTUG' shaxri "YOSHLAR" To'yxonasi</p>
                 <a href="#" class="mt-8 flex justify-center items-center h-14 rounded-full bg-sky-500 text-white">Google
                     Maps</a>
             </div>
         </section>
+
+
+        <section class="py-20 flex justify-center items-center relative overflow-hidden">
+
+    <div class="absolute w-80 h-80 bg-sky-200/30 blur-3xl rounded-full"></div>
+
+    <img
+        data-show
+        src="rings.png"
+        alt="Wedding Rings"
+        class="relative w-120 md:w-90 drop-shadow-[0_20px_35px_rgba(14,165,233,.25)] transition duration-700 hover:scale-105">
+
+</section>
 
         <section class="min-h-[60vh] flex flex-col justify-center items-center">
             <h1 data-show class="font-title text-6xl text-center text-slate-700">Sizni kutamiz 💙</h1>
@@ -316,7 +329,7 @@
                     
                     // Sayt to'liq yuklangach avtomatik silliq ravishda bir oz pastga scroll qiladi
                     window.scrollBy({
-                        top: 250,
+                        top: 0,
                         behavior: 'smooth'
                     });
                 }, 50);
@@ -345,7 +358,7 @@
         }
 
         //================ COUNTDOWN ================
-        const wedding = new Date("2026-09-12 18:00:00").getTime();
+        const wedding = new Date("2026-07-25 11:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
             const distance = wedding - now;
